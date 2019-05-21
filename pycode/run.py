@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+# -*-coding:utf-8-*-
+
+import argparse
+
 import tornado.ioloop
 import tornado.web
 
@@ -9,12 +14,20 @@ class MainHandler(tornado.web.RequestHandler):
 
 def make_app():
     return tornado.web.Application([
-                     (r"/", MainHandler),
-                 ])
+        (r"/", MainHandler),
+    ])
 
 
 if __name__ == "__main__":
-    app = make_app()
-    app.listen(8888, '0.0.0.0')
-    tornado.ioloop.IOLoop.current().start()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        '--port',
+        type=int,
+        help=("port listened by tornado.")
+    )
+    args = parser.parse_args()
+    port = args.port
 
+    app = make_app()
+    app.listen(port, '0.0.0.0')
+    tornado.ioloop.IOLoop.current().start()

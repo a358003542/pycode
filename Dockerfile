@@ -3,18 +3,19 @@ FROM python:3.6
 ENV APP_PATH=/home/pycode
 ENV VENV_PATH=/home/venv
 ENV DATA_PATH=/home/data
+ENV VIRTUAL_ENV=$VENV_PATH
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+ENV PORT=9001
 
 COPY pycode $APP_PATH
 
-RUN python3 -m venv $VENV_PATH
+RUN python -m venv $VENV_PATH
 
 WORKDIR $APP_PATH
 
-ENV VIRTUAL_ENV=$VENV_PATH
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
-
 RUN pip install -r requirements.txt
-CMD python run.py
+CMD python run.py --port=$PORT
 
 VOLUME $DATA_PATH
-EXPOSE 9001
+EXPOSE $PORT
+

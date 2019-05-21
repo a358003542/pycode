@@ -3,6 +3,16 @@ python project docker solution
 
 TODO： 笔者还在进一步学习研究docker中，本项目还需要进一步的优化完善。
 
+
+## examples
+examples是在原pycode的基础上，进一步具体解决某些典型性问题，比如：
+- flask项目组合postgresql数据库
+- 
+
+## run.py的设计原则
+1. 应该提供 `--port` 参数入口，Dockfile里面暴露的端口号将自动传递进来。
+2. 
+
 ## 设计原则
 
 1. 使用官方原版python:3.6 之所以选择python3.6是因为python3.6新增的 f-string 真的太好用了。
