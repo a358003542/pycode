@@ -9,13 +9,16 @@ import tornado.web
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("Hello, world")
+        self.write("Hello, world3")
 
 
 def make_app():
-    return tornado.web.Application([
-        (r"/", MainHandler),
-    ])
+    return tornado.web.Application(
+        [
+            (r"/", MainHandler),
+        ],
+        debug=True
+    )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    volumes:
+      - ./data:/home/data
+      - ./pycode:/home/pycode
+    ports:
+      - 9001:9001
