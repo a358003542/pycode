@@ -3,6 +3,8 @@ version: "3"
 services:
   web:
     build: .
+    env_file:
+      - ./pycode/python.env
     volumes:
       - ./data:/home/data
       - ./pycode:/home/pycode
