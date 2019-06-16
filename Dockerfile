@@ -5,16 +5,17 @@ ARG UID=1000
 ARG GID=1000
 ARG PORT=9001
 
-RUN groupadd -g $GID -o $UNAME
-RUN useradd -m -u $UID -g $GID -o -s /bin/bash -d $UHOME $UNAME
-USER $UNAME
-
+ENV UHOME=/home/$UNAME
 ENV APP_PATH=$UHOME/pycode
 ENV DATA_PATH=$UHOME/data
 ENV VENV_PATH=$UHOME/venv
 ENV VIRTUAL_ENV=$VENV_PATH
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
-ENV UHOME=/home/$UNAME
+
+RUN groupadd -g $GID -o $UNAME
+RUN useradd -m -u $UID -g $GID -o -s /bin/bash -d $UHOME $UNAME
+USER $UNAME
+
 
 COPY pycode $APP_PATH
 
