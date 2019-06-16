@@ -25,7 +25,7 @@ WORKDIR $APP_PATH
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD python run.py --port=$PORT
+CMD /bin/bash
 
 VOLUME $DATA_PATH
 EXPOSE $PORT
