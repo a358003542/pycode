@@ -8,7 +8,6 @@ services:
         - UNAME=wanze
         - UID=1000
         - GID=1000
-        - PORT=9001
     env_file:
       - ./pycode/python.env
     volumes:

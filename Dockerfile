@@ -3,7 +3,7 @@ FROM python:3.6
 ARG UNAME=wanze
 ARG UID=1000
 ARG GID=1000
-ARG PORT=9001
+ENV PORT=9001
 
 ENV UHOME=/home/$UNAME
 ENV APP_PATH=$UHOME/pycode
@@ -25,7 +25,7 @@ WORKDIR $APP_PATH
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD /bin/bash
+CMD python run.py --port=$PORT
 
 VOLUME $DATA_PATH
 EXPOSE $PORT
