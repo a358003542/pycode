@@ -38,7 +38,7 @@ docker-compose up
 通过 `docker-compose` 加载，根据因为设置当前工作目录为 `/home/pycode` ，加载环境变量 
 
 ```
-PYTHONPATH=$PYTHONPATH:.
+PYTHONPATH=.
 ```
 
 会新增当前工作目录到 `sys.path` 里面去。一般pycharm设置src所在，其会自动这样配置，这样当前目录下的一些python module文件夹我们都是可以直接调用的。

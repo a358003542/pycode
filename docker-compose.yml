@@ -8,6 +8,8 @@ services:
         - UNAME=${UNAME}
         - UID=${UID}
         - GID=${GID}
+    env_file:
+      - ./pycode/python.env
     volumes:
       - ./data:/home/${UNAME}/data
       - ./pycode:/home/${UNAME}/pycode
