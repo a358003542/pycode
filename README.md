@@ -4,9 +4,22 @@ python project docker solution
 
 
 ## 更新说明
-将
+见容器外和容器内的用户和群组统一，这样不管是容器内还是容器外都不会出现权限问题了。
 
+现在你可以如下启动容器了
+```bash
+bash runinenv-docker-compose.sh up
+```
 
+脚本主要获取当前用户的名字 UID 和 GID 然后传递给Dockerfile
+
+现在容器内用户默认主文件夹是 /home/<uname>
+
+现在默认pycode映射到容器内的 /home/<uname>/pycode
+
+现在默认python是使用的虚拟环境的python，容器内默认pip是虚拟环境的pip，虚拟环境安装在 /home/uname/venv
+
+现在默认映射数据文件夹在 /home/<uname>/data 只要你容器外有权限，那么容器内也将有权限，容器内的程序输出的文件容器外也有权限
 
 ## useage
 启动容器
