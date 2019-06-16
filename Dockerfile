@@ -17,7 +17,7 @@ RUN useradd -m -u $UID -g $GID -o -s /bin/bash -d $UHOME $UNAME
 USER $UNAME
 
 
-COPY --chown=$UID:$GID pycode $APP_PATH
+COPY --chown=1000:1000 pycode $APP_PATH
 
 RUN python -m venv $VENV_PATH
 
