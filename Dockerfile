@@ -1,8 +1,17 @@
 FROM python:3.6
 
-ENV APP_PATH=/home/pycode \
-    DATA_PATH=/home/data \
-    PORT=9001
+ARG UNAME=wanze
+ARG UID=1000
+ARG GID=1000
+ARG PORT=9001
+
+ENV APP_PATH=/home/pycode
+ENV DATA_PATH=/home/data
+ENV UHOME=/home
+
+RUN groupadd -g $GID -o $UNAME
+RUN useradd -m -u $UID -g $GID -o -s /bin/bash -d $UHOME $UNAME
+USER $UNAME
 
 COPY pycode $APP_PATH
 

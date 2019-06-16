@@ -2,11 +2,18 @@ version: "3"
 
 services:
   web:
-    build: .
+    build:
+      context: .
+      args:
+        - UNAME=wanze
+        - UID=1000
+        - GID=1000
+        - PORT=9001
     env_file:
       - ./pycode/python.env
     volumes:
       - ./data:/home/data
       - ./pycode:/home/pycode
+    user: ${CURRENT_UID}
     ports:
       - 9001:9001
