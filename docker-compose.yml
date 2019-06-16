@@ -11,8 +11,8 @@ services:
     env_file:
       - ./pycode/python.env
     volumes:
-      - ./data:/home/data
-      - ./pycode:/home/pycode
+      - ./data:/home/wanze/data
+      - ./pycode:/home/wanze/pycode
     user: ${CURRENT_UID}
     ports:
       - 9001:9001
