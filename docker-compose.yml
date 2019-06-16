@@ -5,14 +5,12 @@ services:
     build:
       context: .
       args:
-        - UNAME=wanze
-        - UID=1000
-        - GID=1000
-    env_file:
-      - ./pycode/python.env
+        - UNAME=${UNAME}
+        - UID=${UID}
+        - GID=${GID}
     volumes:
-      - ./data:/home/wanze/data
-      - ./pycode:/home/wanze/pycode
-    user: ${CURRENT_UID}
+      - ./data:/home/${UNAME}/data
+      - ./pycode:/home/${UNAME}/pycode
+    user: ${UID}:${GID}
     ports:
       - 9001:9001
